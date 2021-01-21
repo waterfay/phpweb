@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <title>Document</title>
+    <style>
+        .addDate{
+            position: fixed;
+            right:50px;
+            bottom:50px;
+            height:50px;
+            width:50px;
+            background:sandybrown;
+            border-radius: 50px;
+            font-size: 50px;
+            text-align: center;
+            line-height: 50px;
+            color:white;
+            cursor: pointer;
+        }
+        .addDate:hover{
+            background:rgb(207,140,81);
+        }
+        .insertZone{
+            position: fixed;
+            background:#333a;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+        }
+        .insertZone>form{
+            width:50%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <table width="100%">
@@ -33,8 +68,66 @@
     </tfoot>
     </tbody>
     </table>
+    <div class="addDate">+</div>
+    <div class="insertZone" style="display:none;">
+        <form>
+            <h1>新增動物資料</h1>
+            <hr>
+            <p>動物：<input type="text" name="name"></p>
+            <p>重量：<input type="text" name="weight"></p>
+            <p>簡介：<input type="text" name="info"></p>
+            <hr>
+            <button>新增</button>
+            <button type="button">取消</button> <!-- button沒有type會有submit效果 -->
+        </form>
+    </div>
 </body>
 <script>
+    ////////////////////////////////////////////////insert
+
+
+    $(".addDate").on('click',function(){
+        $(".insertZone").html(`
+        <form>
+            <h1>新增動物資料</h1>
+            <hr>
+            <p>動物：<input type="text" name="name"></p>
+            <p>重量：<input type="text" name="weight"></p>
+            <p>簡介：<input type="text" name="info"></p>
+            <hr>
+            <button>新增</button>
+            <button type="button">取消</button> <!-- button沒有type會有submit效果 -->
+        </form>
+    </div>
+        `).fadeIn();
+
+
+    $(".insertZone button:contains('取消')").on('click',function(){
+        $(".insertZone").fadeOut();
+    });
+    $(".insertZone button:contains('新增')").on('click',function(){
+        const data = $(this) .parents("form").find("input").serialize();
+        document.write(typeof(data));
+        $.post("api.php?todo=insert",data,function(re){
+        if(re =='inserted'){
+            $("tbody").empty();
+            start = 0;
+            loading();
+            $(".insertZone").fadeOut();
+        }
+        //     console.log(re);
+        });
+        // console.log(this);
+    });
+});
+
+
+
+
+
+
+
+    //////////////////////////////////////////////////select
     // $.post('api.php?do=select',function(re){
     //     $('tbody').html(re);
     // });
@@ -43,13 +136,15 @@
     // $.get('api.php',{todo:'select'},function(re){
     //     $('tbody').html(re);
     // })
+    ////////////////////////////////////////select
 let start = 0;
 function loading(){
     $.post('api.php?todo=select',{ start }, function (re){
     if(re=='fail'){
-        $('.loadbtn').before('<b style="color:red">沒有囉~~~</b>');remove();
+        $('.loadbtn').before('<b style="color:red">沒有囉~~~</b>').remove();
     }else{
         $('tbody').append(re);
+        $(".mdy").click(chginput);
     start += 10;
     }
     });
@@ -60,7 +155,60 @@ loading();
 // $.post('api.php?todo=select',{ start:0 },function(re){
 //     $('tbody').html(re);
 //     });
+///////////////////////////////////////////update
+// $(".mdy").click(chginput);
 
+function chginput(){
+    // console.log(this)
+    const item=$(this).parent().siblings();//除了爸爸的兄弟們集合
+    // console.log(item);
+    $(this).parents('tr').html(`
+            <td>${item.eq(0).text()}<input type="hidden" name="id" value="${item.eq(0).text()}"></td>
+            <td><input name="name" value="${item.eq(1).text()}"></td>
+            <td><input name="weight" value="${item.eq(2).text()}"></td>
+            <td><input name="info" value="${item.eq(3).text()}"></td>
+            <td>${item.eq(4).text()}</td>
+            <td><button onclick="chgtxt(this)">儲存</button></td>
+    `);
+}
+
+    function chgtxt(who){
+        // console.log(who);
+        const data = $(who).parents("tr").find("input").serialize();//序列化
+        // console.log(data);
+        $.post('api.php?todo=update', data ,function (newDate){
+            const item = $(who).parent().siblings();
+            const
+                data1=item.eq(0).children().text(),
+                data2=item.eq(1).children().val(),
+                data3=item.eq(2).children().val(),
+                data4=item.eq(3).children().val(),
+                data5=newDate;
+            // console.log(re);
+            item.parent().html(`
+            <td>${data1}</td>
+            <td>${data2}</td>
+            <td>${data3}</td>
+            <td>${data4}</td>
+            <td>${data5}</td>
+            <td>
+                <button class="mdy">修改</button>
+                <button onclick="del(this);">刪除</button>
+            </td>
+            `);
+            $(".mdy").click(chginput); //新的HTML沒有click事件，所以要想辦法綁上event
+        });
+    }
+///////////////////////////////////////////////////delete
+function del(who){
+    const id = $(who).parent().siblings().eq(0).text();
+
+    // console.log(who);
+    $.post("api.php?todo=delete", { id }, function (re){
+        if(re=="deleted") $(who).parent().parent().remove();
+        // console.log(re);[]
+    });
+}
 </script>
 </html>
 
