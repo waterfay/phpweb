@@ -57,6 +57,10 @@ body {
         width: 250px;
         height: 250px;
     }
+    .webimg {
+        width: 250px!important;
+        height: 250px!important;
+    }
 
     .leafArrow {
         left: 35%;
@@ -74,7 +78,7 @@ body {
         height: 70vh!important;
     }
     .bigTitle{
-        font-size:20px!important;
+        font-size:35px!important;
       }
       .title{
         font-size:14px!important;
@@ -143,6 +147,10 @@ body {
         width: 250px;
         height: 250px;
     }
+    .webimg {
+        width: 250px!important;
+        height: 250px!important;
+    }
 
 
     .leafArrow {
@@ -165,7 +173,7 @@ body {
         
     }
     .bigTitle{
-        font-size:20px!important;
+        font-size:35px!important;
       }
       .title{
         font-size:14px!important;
@@ -299,13 +307,13 @@ body {
         margin-left:50px!important;
     } */
     .vine {
-        top: 70vh!important;
+        top: 120vh!important;
     }
     .modal{
-        height:190vh!important;
+        height:250vh!important;
     }
     .modalClose{
-        top:170vh!important;
+        top:230vh!important;
     }
 
 
