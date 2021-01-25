@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css" integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g==" crossorigin="anonymous" />
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>地區</tr>
+            <tr>日出</tr>
+            <tr>日落</tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+    let data=new Array();
+    $.getJSON('	https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/A-B0062-001?Authorization=CWB-DA117DA4-D836-409E-AC03-8BD5CADABC32&downloadType=WEB&format=JSON')
+    .done(function(re){
+         data=re.cwbopendata.dataset.locations;
+        // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1].parameterValue);//日出
+        // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1]);
+        // console.log(re.cwbopendata.dataset.locations.location[i]);從0-22縣市
+        // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[5].parameterValue);//日落
+        // console.log(data);
+
+        for(let i=0;i<data.location.length;i++){
+            area=re.cwbopendata.dataset.locations.location[i].locationName;
+            // console.log(re.cwbopendata.dataset.locations.location[i].locationName);
+            sunrise=re.cwbopendata.dataset.locations.location[i].time[0].parameter[1].parameterValue;
+            sunset=re.cwbopendata.dataset.locations.location[i].time[0].parameter[5].parameterValue;
+            // console.log(re.cwbopendata.dataset.locations.location[i].time[0].parameter[1].parameterValue);
+            // console.log(re.cwbopendata.dataset.locations.location[i].time[0].parameter[5].parameterValue);
+            const
+            code=`<tr>
+                <td>${area}</td>
+                <td>${sunrise}</td>
+                <td>${sunset}</td>
+                </tr>`;
+                $("tbody").append(code);
+        }
+
+        })
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css" integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g==" crossorigin="anonymous" />
+</head>
+<body>
+    <canvas id="myChart" width="800" height="400"></canvas>
+    <script>
+        const ctx= document.getElementById('myChart');
+        let kl,tp,nt,tu;
+        let timeLine=new Array();
+        let tpAryT=new Array(),klAryT=new Array(),ntAryT=new Array(),tuAryT=new Array();
+        $.getJSON('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-D0047-091?Authorization=CWB-DA117DA4-D836-409E-AC03-8BD5CADABC32&downloadType=WEB&format=JSON')
+        .done(function(re){
+            data=re;
+            //13=kl,16=tp,18=nt,21=tu
+            // console.log(re);
+            kl=re.cwbopendata.dataset.locations.location[13],
+            tp=re.cwbopendata.dataset.locations.location[16],
+            nt=re.cwbopendata.dataset.locations.location[18],
+            tu=re.cwbopendata.dataset.locations.location[21]
+
+            let timeLine=new Array();
+
+            for(let i=0;i<tp.weatherElement[0].time.length;i++){
+                // console.log(kl.weatherElement[0].time[i].startTime.substring(5,13));
+                timeLine[i]=tp.weatherElement[0].time[i].startTime.substring(5,13);
+            tpAryT.push(tp.weatherElement[0].time[i].elementValue.value);
+            klAryT.push(kl.weatherElement[0].time[i].elementValue.value);
+            ntAryT.push(nt.weatherElement[0].time[i].elementValue.value);
+            tuAryT.push(tu.weatherElement[0].time[i].elementValue.value);
+            }
+
+            //計算上下
+            const finMax=Math.max(Math.max(...tpAryT),Math.max(...ntAryT),Math.max(...klAryT),Math.max(...tuAryT));
+            const finMin=Math.min(Math.min(...tpAryT),Math.min(...ntAryT),Math.min(...klAryT),Math.min(...tuAryT));
+            
+            // for(const item of tp.weatherElement[0].time){
+            //     timeLine.push(item.startTime.substring(5,13));//時間線
+            // }
+
+    new Chart(ctx,{
+    type: 'line', //圖表類型
+    data: { //圖表資料
+        labels:timeLine,//X軸欄位名稱
+        datasets: [{ //Y軸資料細節，目前只有一組如下：
+            label: tp.locationName,//該資料組的標題
+            data: tpAryT,　//數據*6
+            backgroundColor: //6個數據背景色
+                'rgba(153, 102, 255, 0.2)',
+        
+            borderColor: //6個數據邊框色
+                'rgba(54, 162, 235, 1)',
+            
+            borderWidth: 5 //邊線
+        },{
+            label: tp.locationName,//該資料組的標題
+            data: klAryT,　//數據*6
+            backgroundColor: //6個數據背景色
+                'rgba(0, 102, 255, 0.2)',
+        
+            borderColor: //6個數據邊框色
+                'rgba(0, 162, 235, 1)',
+            
+            borderWidth: 5 //邊線
+        },{
+            
+            label: tp.locationName,//該資料組的標題
+            data: ntAryT,　//數據*6
+            backgroundColor: //6個數據背景色
+                'rgba(153, 102, 255, 0.2)',
+        
+            borderColor: //6個數據邊框色
+                'rgba(54, 162, 235, 1)',
+            
+            borderWidth: 5 //邊線
+        
+        },     {       label: tp.locationName,//該資料組的標題
+            data: tuAryT,　//數據*6
+            backgroundColor: //6個數據背景色
+                'rgba(153, 102, 255, 0.2)',
+        
+            borderColor: //6個數據邊框色
+                'rgba(54, 162, 235, 1)',
+            
+            borderWidth: 5 //邊線
+        
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    stepSize:0.5,
+                    max:finMax+2,
+                    min:finMin-2,
+                    // beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+
+
+        })
+        .fail(function(){
+            console.log("api connected fail!");
+        });
+    </script>
+</body>
+</html>
