@@ -116,6 +116,9 @@ if(empty($_SESSION['visit'])){
 
 $User=new DB("user");
 $New=new DB("news");
+$Que=new DB("que");
+$Log = new DB('log');
+
 
 
 ?>
