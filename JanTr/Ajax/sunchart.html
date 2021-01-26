@@ -1,95 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css" integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css"
+        integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g=="
+        crossorigin="anonymous" />
 </head>
+
 <body>
     <table>
-        <thead>
-            <tr>地區</tr>
-            <tr>日出</tr>
-            <tr>日落</tr>
-        </thead>
         <tbody>
 
         </tbody>
     </table>
     <canvas id="myChart" width="800" height="400"></canvas>
     <script>
-    const ctx= document.getElementById('myChart');
-    let data=new Array();
-    let areaLine=new Array();
-    let sunrise=new Array(),sunset=new Array();
-    $.getJSON('	https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/A-B0062-001?Authorization=CWB-DA117DA4-D836-409E-AC03-8BD5CADABC32&downloadType=WEB&format=JSON')
-    .done(function(re){
-         data=re.cwbopendata.dataset.locations;
-        //  sunrise=re.cwbopendata.dataset.locations.location[i].time[0].parameter[1].parameterValue;
-        // sunset=re.cwbopendata.dataset.locations.location[i].time[0].parameter[5].parameterValue;
-        // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1].parameterValue);//日出
-        // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1]);
-        // console.log(re.cwbopendata.dataset.locations.location[i]);從0-22縣市
-        // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[5].parameterValue);//日落
-        // console.log(data);
+        const ctx = document.getElementById('myChart');
+        let data = new Array();
+        let areaLine = new Array();
+        let sunriseH = new Array(), sunriseM = new Array(), sunrise = new Array(), sunsetH = new Array(), sunsetM = new Array(), sunset = new Array();
+        $.getJSON('	https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/A-B0062-001?Authorization=CWB-DA117DA4-D836-409E-AC03-8BD5CADABC32&downloadType=WEB&format=JSON')
+            .done(function (re) {
+                data = re.cwbopendata.dataset.locations;
+                //  sunrise=re.cwbopendata.dataset.locations.location[i].time[0].parameter[1].parameterValue;
+                // sunset=re.cwbopendata.dataset.locations.location[i].time[0].parameter[5].parameterValue;
+                // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1].parameterValue);//日出
+                // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1]);
+                // console.log(re.cwbopendata.dataset.locations.location[i]);從0-22縣市
+                // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[5].parameterValue);//日落
+                // console.log(data);
+                Time = ((Math.ceil((Date.now() - Date.parse('01 Jan 2020 00:00:00 GMT')) / 1000 / 60 / 60 / 24)) - 1);
+                for (let i = 0; i < data.location.length; i++) {
+                    areaLine[i] = re.cwbopendata.dataset.locations.location[i].locationName;
+                    area = re.cwbopendata.dataset.locations.location[i].locationName;
+                    // console.log(re.cwbopendata.dataset.locations.location[i].locationName);
+                    day = data.location[0].time[(Math.ceil((Date.now() - Date.parse('01 Jan 2020 00:00:00 GMT')) / 1000 / 60 / 60 / 24)) - 1].dataTime;
+                    sunriseH[i]= re.cwbopendata.dataset.locations.location[i].time[Time].parameter[1].parameterValue.substr(0, 2);
+                    sunriseM[i] = parseInt(re.cwbopendata.dataset.locations.location[i].time[Time].parameter[1].parameterValue.substr(3, 5));
+                    sunrise[i] = Date.now(new Date(new Date().setHours("0" + sunriseH[i], sunriseM[i], 00)));
+                    sunsetH[i] = parseInt(re.cwbopendata.dataset.locations.location[i].time[Time].parameter[5].parameterValue.substr(0, 2));
+                    sunsetM[i] = parseInt(re.cwbopendata.dataset.locations.location[i].time[Time].parameter[5].parameterValue.substr(3, 5));
+                    sunset[i] = Date.now(new Date(new Date().setHours(sunsetH[i], sunsetM[i], 00)));
 
-        for(let i=0;i<data.location.length;i++){
-            areaLine[i]=re.cwbopendata.dataset.locations.location[i].locationName;
-            area=re.cwbopendata.dataset.locations.location[i].locationName;
-            // console.log(re.cwbopendata.dataset.locations.location[i].locationName);
-            sunrise[i]=re.cwbopendata.dataset.locations.location[i].time[0].parameter[1].parameterValue;
-            sunset[i]=re.cwbopendata.dataset.locations.location[i].time[0].parameter[5].parameterValue;
-            // console.log(re.cwbopendata.dataset.locations.location[i].time[0].parameter[1].parameterValue);
-            // console.log(re.cwbopendata.dataset.locations.location[i].time[0].parameter[5].parameterValue);
-            // const
-            // code=`<tr>
-            //     <td>${area}</td>
-            //     <td>${sunrise}</td>
-            //     <td>${sunset}</td>
-            //     </tr>`;
-            //     $("tbody").append(code);
-        }
-    var myChart = new Chart(ctx,{
-    type: 'line', //圖表類型
-    data: { //圖表資料
-        labels: areaLine,//X軸欄位名稱
-        datasets: [{ //Y軸資料細節，目前只有一組如下：
-            label: '日出時間',//該資料組的標題
-            data: sunrise,　//數據*6
-            backgroundColor: [//6個數據背景色
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [//6個數據邊框色
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 5 //邊線
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
+
+
+                    Time1 = new Date(new Date().setHours(07, 30, 00));
+                    Time2 = new Date(new Date().setHours(04, 30, 00));
+                    console.log(re.cwbopendata.dataset.locations.location[i].time[Time].parameter[1].parameterValue.substr(0, 2));
+                    console.log(re.cwbopendata.dataset.locations.location[i].time[Time].parameter[1].parameterValue.substr(3, 5));
+                    // console.log(re.cwbopendata.dataset.locations.location[i].time[0].parameter[1].parameterValue);
+                    // console.log(re.cwbopendata.dataset.locations.location[i].time[0].parameter[5].parameterValue);
+                    // const
+                    // code=`<tr>
+                    //     <td>${area}</td>
+                    //     <td>${sunrise}</td>
+                    //     <td>${sunset}</td>
+                    //     </tr>`;
+                    //     $("tbody").append(code);
+
                 }
-            }]
-        }
-    }
-});
+                const finMax = Math.max(Math.max(...sunrise), Math.max(...sunset));
+                const finMin = Math.min(Math.min(...sunrise), Math.min(...sunset));
 
-        })
-</script>
+
+                var myChart = new Chart(ctx, {
+                    type: 'line', //圖表類型
+                    data: { //圖表資料
+                        labels: areaLine,//X軸欄位名稱
+                        datasets: [{ //Y軸資料細節，目前只有一組如下：
+                            label: '日出時間' + day,//該資料組的標題
+                            data:sunriseM,　//數據*6
+                            backgroundColor: //6個數據背景色
+                                'rgba(54, 162, 235, 0.2)',
+                            borderColor: //6個數據邊框色
+                                'rgba(54, 162, 235, 1)',
+                            borderWidth: 5 //邊線
+                        },{ //Y軸資料細節，目前只有一組如下：
+                            label: '日落時間' + day,//該資料組的標題
+                            data:sunsetM,　//數據*6
+                            backgroundColor: //6個數據背景色
+                                'rgba(153, 102, 255, 0.2)',
+                            borderColor: //6個數據邊框色
+                                'rgba(153, 102, 255, 1)',
+                            borderWidth: 5 //邊線
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: Math.min(...sunriseM),
+                                    suggestedMax: Math.max(...sunriseM),
+                                    // beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+            })
+    </script>
 </body>
+
 </html>

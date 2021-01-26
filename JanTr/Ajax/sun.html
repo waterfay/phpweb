@@ -28,7 +28,13 @@
         // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1]);
         // console.log(re.cwbopendata.dataset.locations.location[i]);從0-22縣市
         // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[5].parameterValue);//日落
-        // console.log(data);
+        // for(let i=0;i<data.location.time.length;i++){
+            
+        // }
+        console.log(Math.ceil((Date.now()-Date.parse('01 Jan 2020 00:00:00 GMT'))/1000/60/60/24));
+        console.log(data.location[0].time.length);
+        console.log(data.location[0].time[(Math.ceil((Date.now()-Date.parse('01 Jan 2020 00:00:00 GMT'))/1000/60/60/24))-1].dataTime);
+        console.log(re.cwbopendata.dataset.locations.location[0].time[0].dataTime);
 
         for(let i=0;i<data.location.length;i++){
             area=re.cwbopendata.dataset.locations.location[i].locationName;
