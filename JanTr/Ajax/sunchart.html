@@ -12,17 +12,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css"
         integrity="sha512-C7hOmCgGzihKXzyPU/z4nv97W0d9bv4ALuuEbSf6hm93myico9qa0hv4dODThvCsqQUmKmLcJmlpRmCaApr83g=="
         crossorigin="anonymous" />
+        <style>
+            body{
+                background:black;
+                /* url("img2/sun.jpg") no-repeat */
+                background-size:100vh;
+                color:white;
+            }
+        </style>
 </head>
 
 <body>
-    <table>
-        <tbody>
-
-        </tbody>
-    </table>
-    <canvas id="myChart" width="800" height="400"></canvas>
+    <h1 style="text-align:center;">日出日落時間表</h1>
+    <canvas id="myChart1" width="400" height="100"></canvas>
+    <canvas id="myChart2" width="400" height="100"></canvas>
     <script>
-        const ctx = document.getElementById('myChart');
+        const ctx1 = document.getElementById('myChart1');
+        const ctx2 = document.getElementById('myChart2');
         let data = new Array();
         let areaLine = new Array();
         let sunriseH = new Array(), sunriseM = new Array(), sunrise = new Array(), sunsetH = new Array(), sunsetM = new Array(), sunset = new Array();
@@ -69,35 +75,71 @@
                 const finMax = Math.max(Math.max(...sunrise), Math.max(...sunset));
                 const finMin = Math.min(Math.min(...sunrise), Math.min(...sunset));
 
-
-                var myChart = new Chart(ctx, {
+                // if()
+                Chart.defaults.global.defaultFontColor = 'white';
+                var myChart1 = new Chart(ctx1, {
                     type: 'line', //圖表類型
+                    // borderColor:white,
                     data: { //圖表資料
                         labels: areaLine,//X軸欄位名稱
+                        
                         datasets: [{ //Y軸資料細節，目前只有一組如下：
                             label: '日出時間' + day,//該資料組的標題
                             data:sunriseM,　//數據*6
                             backgroundColor: //6個數據背景色
-                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(238, 220, 130, 0.2)',
                             borderColor: //6個數據邊框色
-                                'rgba(54, 162, 235, 1)',
-                            borderWidth: 5 //邊線
-                        },{ //Y軸資料細節，目前只有一組如下：
-                            label: '日落時間' + day,//該資料組的標題
-                            data:sunsetM,　//數據*6
-                            backgroundColor: //6個數據背景色
-                                'rgba(153, 102, 255, 0.2)',
-                            borderColor: //6個數據邊框色
-                                'rgba(153, 102, 255, 1)',
-                            borderWidth: 5 //邊線
+                                'rgba(238, 220, 130, 1)',
+                            borderWidth: 5 ,//邊線
+                            pointHoverBorderColor: '#ffffff',
                         }]
                     },
                     options: {
+                        events:['mousemove'],
                         scales: {
-                            yAxes: [{
+                            xAxes:[{gridLines: {
+                            color: "rgba(255,255,255,.2)",
+                                }}],
+                            yAxes: [{gridLines: {
+                            color: "rgba(255,255,255,.2)",
+                                },
                                 ticks: {
                                     suggestedMin: Math.min(...sunriseM),
                                     suggestedMax: Math.max(...sunriseM),
+                                    // beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+                var myChart2 = new Chart(ctx2, {
+                    type: 'line', //圖表類型
+                    data: { //圖表資料
+                        labels: areaLine,//X軸欄位名稱
+                        datasets: [{ //Y軸資料細節，目前只有一組如下：
+                            label: '日落時間' + day,//該資料組的標題
+                            data:sunsetM,　//數據*6
+                            backgroundColor: //6個數據背景色
+                                'rgba(255, 140, 0, 0.2)',
+                            borderColor: //6個數據邊框色
+                                'rgba(255, 140, 0, 1)',
+                            borderWidth: 5 ,//邊線
+                            pointHoverBorderColor: '#ffffff',
+                            hoverBorderDash:'#ffffff',
+                        }]
+                    },
+                    options: {
+                        events:['mousemove'],
+                        scales: {
+                            xAxes:[{gridLines: {
+                            color: "rgba(255,255,255,.2)",
+                                }}],
+                            yAxes: [{gridLines: {
+                            color: "rgba(255,255,255,.2)",
+                                },
+                                ticks: {
+                                    suggestedMin: Math.min(...sunsetM),
+                                    suggestedMax: Math.max(...sunsetM),
                                     // beginAtZero: true
                                 }
                             }]
