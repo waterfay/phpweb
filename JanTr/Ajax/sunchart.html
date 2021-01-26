@@ -14,10 +14,13 @@
         crossorigin="anonymous" />
         <style>
             body{
-                background:black;
+                background:url("img2/sun.jpg")  ;
+                width: 100%;
+                height: 100vh;
                 /* url("img2/sun.jpg") no-repeat */
+                /* rgb(13, 27, 54) */
                 background-size:100vh;
-                color:white;
+                color:rgba(255, 245, 238, 1);
             }
         </style>
 </head>
@@ -76,7 +79,7 @@
                 const finMin = Math.min(Math.min(...sunrise), Math.min(...sunset));
 
                 // if()
-                Chart.defaults.global.defaultFontColor = 'white';
+                Chart.defaults.global.defaultFontColor = 'rgba(255, 245, 238, 1)';
                 var myChart1 = new Chart(ctx1, {
                     type: 'line', //圖表類型
                     // borderColor:white,
