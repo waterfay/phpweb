@@ -98,7 +98,7 @@
                         labels: areaLine,//X軸欄位名稱
                         
                         datasets: [{ //Y軸資料細節，目前只有一組如下：
-                            label: '日出時間' + day,//該資料組的標題
+                            label: '日出時間' + day + "    "+ Math.max(...sunriseH) +'時',//該資料組的標題
                             data:sunriseM,　//數據*6
                             backgroundColor: //6個數據背景色
                                 'rgba(238, 220, 130, 0.2)',
@@ -133,7 +133,7 @@
                     data: { //圖表資料
                         labels: areaLine,//X軸欄位名稱
                         datasets: [{ //Y軸資料細節，目前只有一組如下：
-                            label: '日落時間' + day,//該資料組的標題
+                            label: '日落時間' + day + "    "+ Math.max(...sunsetH) +'時',//該資料組的標題
                             data:sunsetM,　//數據*6
                             backgroundColor: //6個數據背景色
                                 'rgba(255, 140, 0, 0.2)',
