@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var yes = confirm('準備開始猜數字遊戲了嗎?');
+    var answer = Math.floor(Math.random() * 99) + 1;
+    // var answer = 50;
+    // let turn = 1
+    var word = prompt('偷偷跟我說一個幸運數字(0~99)');
+
+    if (yes) {
+
+        while (word != answer) {
+            if(word){
+            if (word > answer && word < 100 && word>0) {
+                word = prompt("比" + word + "小");
+            } else if (word < answer&& word < 100 && word>0) {
+                word = prompt("比" + word + "大");
+            }
+        }else{
+            var cancelz = confirm('你...真的要退出嗎?');
+        if (cancelz) {
+            alert('我真的不想玩了');
+            break;
+        } else {
+            alert('還是挑戰看看');
+        }
+            
+        }
+    }
+    if (word == answer) {
+            alert("答案是" + word + "恭喜答對了~~~")
+        }
+    } else {
+        var cancel = confirm('你...真的要退出嗎?');
+        if (cancel) {
+            alert('我真的不想玩了');
+        } else {
+            alert('還是挑戰看看');
+        }
+}
+
+</script>
+
+</html>

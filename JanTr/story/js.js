@@ -8,7 +8,8 @@ function gameplay (){
         cancelButtonText: '略過',
         // cancelButtonColor: "#000000",
         showCancelButton: true,
-        allowOutsideClick: false
+        allowOutsideClick: false,
+        background:'rgb(245, 222, 178,.5)',
     })
 
 }
