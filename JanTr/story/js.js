@@ -51,33 +51,63 @@ function gameplay (){
     }
 
 }
-
+// let pok ={
+//     hp:200,
+//     skill:
+// }
 function game(pokname){
     switch(pokname){
         case '皮卡丘':
             document.getElementsByClassName("pok2")[0].style.display = 'none';
-            document.getElementsByClassName("pok1")[0].style.top='50%';
-            document.getElementsByClassName("pok1")[0].style.left='70%';
+            document.getElementsByClassName("pok1")[0].style.top='55%';
+            document.getElementsByClassName("pok1")[0].style.left='65%';
             document.getElementsByClassName("pok1")[0].style.height='300px';
             document.getElementsByClassName("pok1")[0].style.width='300px';
             document.getElementsByClassName("person2")[0].style.display = 'block';
+            document.getElementsByClassName("pok3")[0].style.display = 'block';
+            document.getElementsByClassName("person3")[0].style.display = 'block';
+            Swal.fire({
+                text:`${pokname}，就決定是你了！`,
+                confirmButtonColor:'rgb(255, 85, 0)',
+                background:'rgb(245, 222, 178,.7)',
+            })
+            .then(function() {
+                Swal.fire({
+                    text:`111111`,
+                    confirmButtonColor:'rgb(255, 85, 0)',
+                    background:'rgb(245, 222, 178,.7)',
+                })
+            });
         break;
         case '伊布':
             document.getElementsByClassName("pok1")[0].style.display = 'none';
-            document.getElementsByClassName("pok2")[0].style.left='70%';
-            document.getElementsByClassName("pok2")[0].style.top='50%';
+            document.getElementsByClassName("pok2")[0].style.left='65%';
+            document.getElementsByClassName("pok2")[0].style.top='55%';
             document.getElementsByClassName("pok2")[0].style.height='300px';
             document.getElementsByClassName("pok2")[0].style.width='300px';
             document.getElementsByClassName("person2")[0].style.display = 'block';
+            document.getElementsByClassName("pok3")[0].style.display = 'block';
+            document.getElementsByClassName("person3")[0].style.display = 'block';
+            Swal.fire({
+                text:`${pokname}，就決定是你了！`,
+                confirmButtonColor:'rgb(255, 85, 0)',
+                background:'rgb(245, 222, 178,.7)',
+            })
         break;
     }
-
-    Swal.fire({
-        text:`${pokname}，就決定是你了！`,
-        confirmButtonColor:'rgb(255, 85, 0)',
-        background:'rgb(245, 222, 178,.7)',
-    })
 }
+// .then((result) => {
+//         if(result){
+//         Swal.fire({
+//             text:"1111",
+//             confirmButtonColor:'rgb(255, 85, 0)',
+//             background:'rgb(245, 222, 178,.7)',
+//         });
+//     }
+// }
+
+
+
     // .then((result) =>{
     //     if (result.dismiss === 'cancel') {
     //         Swal.fire({

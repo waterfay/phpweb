@@ -74,3 +74,19 @@ body {
 .pok2:hover{
     filter: drop-shadow(10px 10px 10px #ffffff);
 }
+.pok3{
+    width:200px;
+    height: 200px;
+    position: absolute;
+    top:60%;
+    left:40%;
+    overflow: hidden;
+    display: none;
+}
+
+.person3{
+    position: absolute;
+    top:43%;
+    left:80%;
+    display: none;
+}
