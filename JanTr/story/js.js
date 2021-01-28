@@ -73,9 +73,19 @@ function game(pokname){
             })
             .then(function() {
                 Swal.fire({
-                    text:`111111`,
+                    title:'選一個絕招',
                     confirmButtonColor:'rgb(255, 85, 0)',
                     background:'rgb(245, 222, 178,.7)',
+                    width: 600,
+                    height: 600,
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: `電擊`,
+                    confirmButtonColor:'rgb(255, 85, 0)',
+                    denyButtonText: `打雷`,
+                    denyButtonColor:'rgb(255, 85, 0)',
+                    cancelButtonText:`電光一閃`,
+                    cancelButtonColor:'rgb(255, 85, 0)',
                 })
             });
         break;
@@ -93,6 +103,23 @@ function game(pokname){
                 confirmButtonColor:'rgb(255, 85, 0)',
                 background:'rgb(245, 222, 178,.7)',
             })
+            .then(function() {
+                Swal.fire({
+                    title:'選一個絕招',
+                    confirmButtonColor:'rgb(255, 85, 0)',
+                    background:'rgb(245, 222, 178,.7)',
+                    width: 600,
+                    height: 600,
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: `撞擊`,
+                    confirmButtonColor:'rgb(255, 85, 0)',
+                    denyButtonText: `打雷`,
+                    denyButtonColor:'rgb(255, 85, 0)',
+                    cancelButtonText:`高速星星`,
+                    cancelButtonColor:'rgb(255, 85, 0)'
+                })
+            });
         break;
     }
 }

@@ -17,7 +17,8 @@ body {
 }
 
 .swal2-popup {
-    top: 25%!important;
+    top: 30%!important;
+    left: -30%!important;
 }
 
 .btn{
