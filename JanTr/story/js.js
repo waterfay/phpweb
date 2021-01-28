@@ -34,7 +34,12 @@ function gameplay (){
 }
 
     function start(){
-        
+        document.getElementsByClassName("person1")[0].style.display = 'none';
+        Swal.fire({
+            text:"選擇一隻你喜歡的神奇寶貝開始冒險吧！",
+            confirmButtonColor:'rgb(255, 85, 0)',
+            background:'rgb(245, 222, 178,.7)',
+        })
     }
     // .then((result) =>{
     //     if (result.dismiss === 'cancel') {
