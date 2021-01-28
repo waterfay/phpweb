@@ -39,5 +39,30 @@ body {
     left:75%;
     overflow: hidden;
     display: none;
-    animation:person1 1s 1 
+
+}
+.pok1{
+    width:450px;
+    height: 450px;
+    position: absolute;
+    top:10%;
+    left:20%;
+    overflow: hidden;
+    display: none;
+}
+.pok1:hover{
+    filter: drop-shadow(10px 10px 10px #ffffff);
+}
+
+.pok2{
+    width:425px;
+    height: 450px;
+    position: absolute;
+    top:10%;
+    left:60%;
+    overflow: hidden;
+    display: none;
+}
+.pok2:hover{
+    filter: drop-shadow(10px 10px 10px #ffffff);
 }

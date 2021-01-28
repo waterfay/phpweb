@@ -1,4 +1,10 @@
 let name;
+var mybtn = document.getElementById("btn");
+mybtn.addEventListener("click", start);
+var pok1 = document.getElementsByClass("pok1");
+pok1.addEventListener("click", game);
+var pok2 = document.getElementsByClass("pok2");
+pok2.addEventListener("click", game);
 function gameplay (){
     document.getElementsByClassName("btnst")[0].style.display = 'none';
     document.getElementsByClassName("person1")[0].style.display = 'block';
@@ -28,19 +34,24 @@ function gameplay (){
                 confirmButtonColor:'rgb(255, 85, 0)',
                 background:'rgb(245, 222, 178,.7)',
             }).then(start);
-
         }
     })
-}
-
     function start(){
         document.getElementsByClassName("person1")[0].style.display = 'none';
+        document.getElementsByClassName("pok1")[0].style.display = 'block';
+        document.getElementsByClassName("pok2")[0].style.display = 'block';
         Swal.fire({
             text:"選擇一隻你喜歡的神奇寶貝開始冒險吧！",
             confirmButtonColor:'rgb(255, 85, 0)',
             background:'rgb(245, 222, 178,.7)',
-        })
+        });
+        function game(){
+        }
     }
+
+}
+
+
     // .then((result) =>{
     //     if (result.dismiss === 'cancel') {
     //         Swal.fire({
