@@ -1,10 +1,12 @@
 let name;
+var pokname;
 var mybtn = document.getElementById("btn");
 mybtn.addEventListener("click", start);
-var pok1 = document.getElementsByClass("pok1");
+var pok1 = document.getElementsByClass("pok1")[0];
 pok1.addEventListener("click", game);
-var pok2 = document.getElementsByClass("pok2");
+var pok2 = document.getElementsByClass("pok2")[0];
 pok2.addEventListener("click", game);
+
 function gameplay (){
     document.getElementsByClassName("btnst")[0].style.display = 'none';
     document.getElementsByClassName("person1")[0].style.display = 'block';
@@ -50,12 +52,31 @@ function gameplay (){
 
 }
 
-function game(){
+function game(pokname){
+    switch(pokname){
+        case '皮卡丘':
+            document.getElementsByClassName("pok2")[0].style.display = 'none';
+            document.getElementsByClassName("pok1")[0].style.top='50%';
+            document.getElementsByClassName("pok1")[0].style.left='70%';
+            document.getElementsByClassName("pok1")[0].style.height='300px';
+            document.getElementsByClassName("pok1")[0].style.width='300px';
+            document.getElementsByClassName("person2")[0].style.display = 'block';
+        break;
+        case '伊布':
+            document.getElementsByClassName("pok1")[0].style.display = 'none';
+            document.getElementsByClassName("pok2")[0].style.left='70%';
+            document.getElementsByClassName("pok2")[0].style.top='50%';
+            document.getElementsByClassName("pok2")[0].style.height='300px';
+            document.getElementsByClassName("pok2")[0].style.width='300px';
+            document.getElementsByClassName("person2")[0].style.display = 'block';
+        break;
+    }
+
     Swal.fire({
-        text:"選擇一隻你喜歡的神奇寶貝開始冒險吧！",
+        text:`${pokname}，就決定是你了！`,
         confirmButtonColor:'rgb(255, 85, 0)',
         background:'rgb(245, 222, 178,.7)',
-    });
+    })
 }
     // .then((result) =>{
     //     if (result.dismiss === 'cancel') {

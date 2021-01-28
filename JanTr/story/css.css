@@ -39,7 +39,15 @@ body {
     left:75%;
     overflow: hidden;
     display: none;
-
+}
+.person2{
+    width:200px;
+    height: 400px;
+    position: absolute;
+    top:40%;
+    left:30%;
+    overflow: hidden;
+    display: none;
 }
 .pok1{
     width:450px;
