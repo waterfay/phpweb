@@ -20,17 +20,42 @@ function gameplay (){
                 text:`${name}準備好成為神奇寶貝大師了嗎？`,
                 confirmButtonColor:'rgb(255, 85, 0)',
                 background:'rgb(245, 222, 178,.7)',
-            }) .then(start);
+            }).then(start);
         } else {    
             name = result.value;
             Swal.fire({
-              text: `${name}準備好成為神奇寶貝大師了嗎？`,
-              confirmButtonColor:'rgb(255, 85, 0)',
-              background:'rgb(245, 222, 178,.7)',
+                text: `${name}準備好成為神奇寶貝大師了嗎？`,
+                confirmButtonColor:'rgb(255, 85, 0)',
+                background:'rgb(245, 222, 178,.7)',
             }).then(start);
+
         }
-    });
-  }
+    })
+}
+
+    function start(){
+        
+    }
+    // .then((result) =>{
+    //     if (result.dismiss === 'cancel') {
+    //         Swal.fire({
+    //             text: `${name}，選擇一隻你順眼的神奇寶貝吧！`,
+    //             confirmButtonColor:'rgb(255, 85, 0)',
+    //             background:'rgb(245, 222, 178,.7)',
+    //             confirmButtonText: '就決定是你了',
+    //             cancelButtonText: '略過',
+    //         })
+    // }else{
+
+
+//   }
+// function start(){
+//     Swal.fire({
+//         text:"選擇一隻你喜歡的寵物";
+//         confirmButtonText: '就決定是你了',
+//         cancelButtonText: '略過',
+//     })
+// }
 // function start(){
     
 // }
