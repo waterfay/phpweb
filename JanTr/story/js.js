@@ -176,6 +176,21 @@ function atbb1(){
     document.getElementById("blood1").innerHTML = pokp.blood;
 }
 function atbb2(){
+    j=Math.ceil(Math.random()*4);
+    switch(j){
+        case 1:
+        poki.blood=poki.blood-pokh.at1[1];
+        break;
+        case 2:
+            poki.blood=poki.blood-pokh.at2[1];
+            break;
+            case 3:
+                poki.blood=poki.blood-pokh.at3[1];
+                break;
+                case 4:
+                    poki.blood=poki.blood-pokh.at3[1];
+                    break;
+    }
     // A=Math.ceil(Math.random()*4);
     poki.blood=poki.blood-pokh.at1[1];
     // console.log(atbb());
