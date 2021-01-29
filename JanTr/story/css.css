@@ -91,3 +91,27 @@ body {
     left:80%;
     display: none;
 }
+
+.attack{
+    width:550px;
+    height: 300px;
+    border-radius: 10px;
+    background:rgb(245, 222, 178,.7);
+    position: absolute;
+    top:60%;
+    left:1%;
+    display: none;
+}
+
+.atbtn{
+    margin:20px;
+    transform: translate(5%,5%);
+    background:rgb(255, 85, 0);
+    width:200px;
+    height:100px;
+    font-size:25px;
+    color:#ffeaea;
+    border-radius: 10px;
+    box-sizing: inherit;
+    
+}

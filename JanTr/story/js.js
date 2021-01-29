@@ -1,5 +1,9 @@
 let name;
 var pokname;
+var at1;
+var at2;
+var at3;
+var at4;
 var mybtn = document.getElementById("btn");
 mybtn.addEventListener("click", start);
 var pok1 = document.getElementsByClass("pok1")[0];
@@ -66,28 +70,27 @@ function game(pokname){
             document.getElementsByClassName("person2")[0].style.display = 'block';
             document.getElementsByClassName("pok3")[0].style.display = 'block';
             document.getElementsByClassName("person3")[0].style.display = 'block';
+            // at1="撞擊";
+            // at2="打雷";
+            // at3="高速星星";
+            // at4="十萬伏特";
             Swal.fire({
                 text:`${pokname}，就決定是你了！`,
                 confirmButtonColor:'rgb(255, 85, 0)',
                 background:'rgb(245, 222, 178,.7)',
             })
             .then(function() {
-                Swal.fire({
-                    title:'選一個絕招',
-                    confirmButtonColor:'rgb(255, 85, 0)',
-                    background:'rgb(245, 222, 178,.7)',
-                    width: 600,
-                    height: 600,
-                    showDenyButton: true,
-                    showCancelButton: true,
-                    confirmButtonText: `電擊`,
-                    confirmButtonColor:'rgb(255, 85, 0)',
-                    denyButtonText: `打雷`,
-                    denyButtonColor:'rgb(255, 85, 0)',
-                    cancelButtonText:`電光一閃`,
-                    cancelButtonColor:'rgb(255, 85, 0)',
-                })
-            });
+                at1="電光一閃";
+                at2="打雷";
+                at3="電擊";
+                at4="十萬伏特";
+      
+                document.getElementsByClassName("attack")[0].style.display = 'block';
+                document.getElementsByClassName("atbtn")[0].value = at1;
+                document.getElementsByClassName("atbtn")[1].value = at2;
+                document.getElementsByClassName("atbtn")[2].value = at3;
+                document.getElementsByClassName("atbtn")[3].value = at4;
+            })
         break;
         case '伊布':
             document.getElementsByClassName("pok1")[0].style.display = 'none';
@@ -98,28 +101,26 @@ function game(pokname){
             document.getElementsByClassName("person2")[0].style.display = 'block';
             document.getElementsByClassName("pok3")[0].style.display = 'block';
             document.getElementsByClassName("person3")[0].style.display = 'block';
+
             Swal.fire({
                 text:`${pokname}，就決定是你了！`,
                 confirmButtonColor:'rgb(255, 85, 0)',
                 background:'rgb(245, 222, 178,.7)',
             })
             .then(function() {
-                Swal.fire({
-                    title:'選一個絕招',
-                    confirmButtonColor:'rgb(255, 85, 0)',
-                    background:'rgb(245, 222, 178,.7)',
-                    width: 600,
-                    height: 600,
-                    showDenyButton: true,
-                    showCancelButton: true,
-                    confirmButtonText: `撞擊`,
-                    confirmButtonColor:'rgb(255, 85, 0)',
-                    denyButtonText: `打雷`,
-                    denyButtonColor:'rgb(255, 85, 0)',
-                    cancelButtonText:`高速星星`,
-                    cancelButtonColor:'rgb(255, 85, 0)'
-                })
-            });
+                at1="撞擊";
+                at2="挖洞";
+                at3="高速星星";
+                at4="電光一閃";
+                document.getElementsByClassName("attack")[0].style.display = 'block';
+                document.getElementsByClassName("atbtn")[0].value = at1;
+                document.getElementsByClassName("atbtn")[1].value = at2;
+                document.getElementsByClassName("atbtn")[2].value = at3;
+                document.getElementsByClassName("atbtn")[3].value = at4;
+            })
+            // .then(function(){
+            //     document.getElementsByClassName("swal2-popup swal2-modal swal2-show")[0].style.display="block";
+            // })
         break;
     }
 }

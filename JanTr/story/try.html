@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="攻擊" id="btn1" onclick="attact(1);">
+    <input type="button" value="攻擊" id="btn2" onclick="attact(2);">
+    <input type="button" value="攻擊" id="btn3" onclick="attact(3);">
+    <input type="button" value="攻擊" id="btn4" onclick="attact(4);">
+</body>
+</html>
+<script>
+var a;
+var b;
+var c;
+var d;
+var pokp={
+    name:"皮卡丘",
+    blood:520,
+    at1:["電光一閃",45],
+    at2:["打雷",100],
+    at3:["電擊",35],
+    at4:["十萬伏特",80]
+}
+// var poki={
+//     name:"伊布",
+//     blood:550,
+//     at1:["撞擊",30],
+//     at2:["挖洞",100],
+//     at3:["高速星星",60],
+//     at4:["電光一閃",45]
+// }
+var pokh={
+    name:"海星星",
+    blood:600,
+    at1:["水槍",35],
+    at2:["撞擊",30],
+    at3:["泡沫光線",45],
+    at4:["力量寶石",80]
+}
+A=Math.floor(Math.random()*4);
+pokp.blood=(pokp.blood)-pokh.at1[A];
+pokh.blood=pokh.blood-pokp.at1[1];
+
+// for(i=0;i<=document.querySelectorAll("input").length;i++){
+//     document.getElementById(`btn+${i}`).onclick=pokh.blood-pokp.at+i[i];
+// }
+
+function attact(i){
+    switch(i){
+    case 1:
+    pokh.blood=pokh.blood-pokp.at1[1];
+    console.log(pokh.blood);
+    break;
+    case 2:
+    pokh.blood=pokh.blood-pokp.at2[1];
+    console.log(pokh.blood);
+    break;
+    case 3:
+    pokh.blood=pokh.blood-pokp.at3[1];
+    console.log(pokh.blood);
+    break;
+    case 4:
+    pokh.blood=pokh.blood-pokp.at3[1];
+    console.log(pokh.blood);
+    break;
+    }
+    if(pokh.blood<=0){
+        document.getElementById('btn1').onclick = null;
+        document.getElementById('btn2').onclick = null;
+        document.getElementById('btn3').onclick = null;
+        document.getElementById('btn4').onclick = null;
+}
+    }
+    // document.getElementById("btn"+i).onclick=pokh.blood-pokp.at1[1];
+    // pokh.blood=pokh.blood-pokp.at2[2];
+    // pokh.blood=pokh.blood-pokp.at3[3];
+    // pokh.blood=pokh.blood-pokp.at3[4];
+    console.log(pokh.blood);
+
+</script>
+
+
