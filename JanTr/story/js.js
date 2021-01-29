@@ -136,52 +136,45 @@ function game(pokname){
             // .then(function(){
             //     document.getElementsByClassName("swal2-popup swal2-modal swal2-show")[0].style.display="block";
             // })
-        break;
+ 
     }
-    function attact(i){
-    switch(i){
-    case 1:
-    pokh.blood=pokh.blood-pokp.at1[1];
-    console.log(pokh.blood);
-    break;
-    case 2:
-    pokh.blood=pokh.blood-pokp.at2[1];
-    console.log(pokh.blood);
-    break;
-    case 3:
-    pokh.blood=pokh.blood-pokp.at3[1];
-    console.log(pokh.blood);
-    break;
-    case 4:
-    pokh.blood=pokh.blood-pokp.at3[1];
-    console.log(pokh.blood);
-    break;
+
+
     }
-    if(pokh.blood<=0){
-        document.getElementById('btn1').onclick = null;
-        document.getElementById('btn2').onclick = null;
-        document.getElementById('btn3').onclick = null;
-        document.getElementById('btn4').onclick = null;
-}
-    }
-}
 
 function attact(i){
     switch(i){
-    case 1:
+    case (1):
     pokh.blood=pokh.blood-pokp.at1[1];
+    if(pokh.blood<=0){
+        pokh.blood=0;
+    }
+    document.getElementById("blood").innerHTML = pokh.blood;
     console.log(pokh.blood);
     break;
     case 2:
     pokh.blood=pokh.blood-pokp.at2[1];
+    if(pokh.blood<=0){
+        pokh.blood=0;
+    }
+    document.getElementById("blood").innerHTML = pokh.blood;
     console.log(pokh.blood);
     break;
     case 3:
     pokh.blood=pokh.blood-pokp.at3[1];
+    if(pokh.blood<=0){
+        pokh.blood=0;
+    }
+    document.getElementById("blood").innerHTML = pokh.blood;
     console.log(pokh.blood);
     break;
     case 4:
     pokh.blood=pokh.blood-pokp.at3[1];
+    if(pokh.blood<=0){
+        pokh.blood=0;
+    }
+    document.getElementById("blood").innerHTML = pokh.blood;
+
     console.log(pokh.blood);
     break;
     }

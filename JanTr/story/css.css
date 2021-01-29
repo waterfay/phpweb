@@ -115,3 +115,11 @@ body {
     box-sizing: inherit;
     
 }
+
+#blood{
+    color:red;
+    font-size: 50px;
+    position: absolute;
+    top:77%;
+    left:44%;
+}
