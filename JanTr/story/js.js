@@ -4,6 +4,30 @@ var at1;
 var at2;
 var at3;
 var at4;
+var pokp={
+    name:"皮卡丘",
+    blood:520,
+    at1:["電光一閃",45],
+    at2:["打雷",100],
+    at3:["電擊",35],
+    at4:["十萬伏特",80]
+}
+var poki={
+    name:"伊布",
+    blood:550,
+    at1:["撞擊",30],
+    at2:["挖洞",100],
+    at3:["高速星星",60],
+    at4:["電光一閃",45]
+}
+var pokh={
+    name:"海星星",
+    blood:600,
+    at1:["水槍",35],
+    at2:["撞擊",30],
+    at3:["泡沫光線",45],
+    at4:["力量寶石",80]
+}
 var mybtn = document.getElementById("btn");
 mybtn.addEventListener("click", start);
 var pok1 = document.getElementsByClass("pok1")[0];
@@ -80,16 +104,11 @@ function game(pokname){
                 background:'rgb(245, 222, 178,.7)',
             })
             .then(function() {
-                at1="電光一閃";
-                at2="打雷";
-                at3="電擊";
-                at4="十萬伏特";
-      
                 document.getElementsByClassName("attack")[0].style.display = 'block';
-                document.getElementsByClassName("atbtn")[0].value = at1;
-                document.getElementsByClassName("atbtn")[1].value = at2;
-                document.getElementsByClassName("atbtn")[2].value = at3;
-                document.getElementsByClassName("atbtn")[3].value = at4;
+                document.getElementsByClassName("atbtn")[0].value = pokp.at1[0];
+                document.getElementsByClassName("atbtn")[1].value = pokp.at2[0];
+                document.getElementsByClassName("atbtn")[2].value = pokp.at3[0];
+                document.getElementsByClassName("atbtn")[3].value = pokp.at4[0];
             })
         break;
         case '伊布':
@@ -108,22 +127,72 @@ function game(pokname){
                 background:'rgb(245, 222, 178,.7)',
             })
             .then(function() {
-                at1="撞擊";
-                at2="挖洞";
-                at3="高速星星";
-                at4="電光一閃";
                 document.getElementsByClassName("attack")[0].style.display = 'block';
-                document.getElementsByClassName("atbtn")[0].value = at1;
-                document.getElementsByClassName("atbtn")[1].value = at2;
-                document.getElementsByClassName("atbtn")[2].value = at3;
-                document.getElementsByClassName("atbtn")[3].value = at4;
+                document.getElementsByClassName("atbtn")[0].value = poki.at1[0];
+                document.getElementsByClassName("atbtn")[1].value = poki.at2[0];
+                document.getElementsByClassName("atbtn")[2].value = poki.at3[0];
+                document.getElementsByClassName("atbtn")[3].value = poki.at4[0];
             })
             // .then(function(){
             //     document.getElementsByClassName("swal2-popup swal2-modal swal2-show")[0].style.display="block";
             // })
         break;
     }
+    function attact(i){
+    switch(i){
+    case 1:
+    pokh.blood=pokh.blood-pokp.at1[1];
+    console.log(pokh.blood);
+    break;
+    case 2:
+    pokh.blood=pokh.blood-pokp.at2[1];
+    console.log(pokh.blood);
+    break;
+    case 3:
+    pokh.blood=pokh.blood-pokp.at3[1];
+    console.log(pokh.blood);
+    break;
+    case 4:
+    pokh.blood=pokh.blood-pokp.at3[1];
+    console.log(pokh.blood);
+    break;
+    }
+    if(pokh.blood<=0){
+        document.getElementById('btn1').onclick = null;
+        document.getElementById('btn2').onclick = null;
+        document.getElementById('btn3').onclick = null;
+        document.getElementById('btn4').onclick = null;
 }
+    }
+}
+
+function attact(i){
+    switch(i){
+    case 1:
+    pokh.blood=pokh.blood-pokp.at1[1];
+    console.log(pokh.blood);
+    break;
+    case 2:
+    pokh.blood=pokh.blood-pokp.at2[1];
+    console.log(pokh.blood);
+    break;
+    case 3:
+    pokh.blood=pokh.blood-pokp.at3[1];
+    console.log(pokh.blood);
+    break;
+    case 4:
+    pokh.blood=pokh.blood-pokp.at3[1];
+    console.log(pokh.blood);
+    break;
+    }
+    if(pokh.blood<=0){
+        document.getElementById('btn1').onclick = null;
+        document.getElementById('btn2').onclick = null;
+        document.getElementById('btn3').onclick = null;
+        document.getElementById('btn4').onclick = null;
+}
+    }
+
 // .then((result) => {
 //         if(result){
 //         Swal.fire({
