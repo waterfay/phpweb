@@ -123,3 +123,23 @@ body {
     top:77%;
     left:44%;
 }
+#blood1{
+    color:red;
+    font-size: 50px;
+    position: absolute;
+    top:85%;
+    left:68%;
+}
+
+#win{
+    color:red;
+    font-size: 300px;
+    position: absolute;
+    /* top:50%;
+    left:50%; */
+    z-index: 1;
+    /* background:#ffffff; */
+    /* padding:30vh;
+    margin: 0; */
+    /* display: none; */
+}

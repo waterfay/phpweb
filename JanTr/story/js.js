@@ -1,9 +1,9 @@
 let name;
-var pokname;
 var at1;
 var at2;
 var at3;
 var at4;
+var attact;
 var pokp={
     name:"皮卡丘",
     blood:520,
@@ -34,6 +34,10 @@ var pok1 = document.getElementsByClass("pok1")[0];
 pok1.addEventListener("click", game);
 var pok2 = document.getElementsByClass("pok2")[0];
 pok2.addEventListener("click", game);
+
+var Atb = document.getElementsByClassName("attack")[0];
+Atb.addEventListener("click", atbb);
+
 
 function gameplay (){
     document.getElementsByClassName("btnst")[0].style.display = 'none';
@@ -85,7 +89,7 @@ function gameplay (){
 // }
 function game(pokname){
     switch(pokname){
-        case '皮卡丘':
+        case pokp.name:
             document.getElementsByClassName("pok2")[0].style.display = 'none';
             document.getElementsByClassName("pok1")[0].style.top='55%';
             document.getElementsByClassName("pok1")[0].style.left='65%';
@@ -110,8 +114,9 @@ function game(pokname){
                 document.getElementsByClassName("atbtn")[2].value = pokp.at3[0];
                 document.getElementsByClassName("atbtn")[3].value = pokp.at4[0];
             })
+            
         break;
-        case '伊布':
+        case poki.name:
             document.getElementsByClassName("pok1")[0].style.display = 'none';
             document.getElementsByClassName("pok2")[0].style.left='65%';
             document.getElementsByClassName("pok2")[0].style.top='55%';
@@ -133,45 +138,93 @@ function game(pokname){
                 document.getElementsByClassName("atbtn")[2].value = poki.at3[0];
                 document.getElementsByClassName("atbtn")[3].value = poki.at4[0];
             })
-            // .then(function(){
-            //     document.getElementsByClassName("swal2-popup swal2-modal swal2-show")[0].style.display="block";
-            // })
- 
+
+        if(pokh.blood<=0){
+            document.getElementById('btn1').onclick = null;
+            document.getElementById('btn2').onclick = null;
+            document.getElementById('btn3').onclick = null;
+            document.getElementById('btn4').onclick = null;
+    }
+        }
+    }
+
+// B=pokname;
+function atbb1(){
+    j=Math.ceil(Math.random()*4);
+    switch(j){
+        case 1:
+        pokp.blood=pokp.blood-pokh.at1[1];
+        break;
+        case 2:
+            pokp.blood=pokp.blood-pokh.at2[1];
+            break;
+            case 3:
+                pokp.blood=pokp.blood-pokh.at3[1];
+                break;
+                case 4:
+                    pokp.blood=pokp.blood-pokh.at3[1];
+                    break;
     }
 
 
+    // console.log(atbb());
+
+    if(pokp.blood<=0){
+        pokp.blood=0;
+        document.getElementById("win").innerHTML = 'You Lost';
     }
+    document.getElementById("blood1").innerHTML = pokp.blood;
+}
+function atbb2(){
+    // A=Math.ceil(Math.random()*4);
+    poki.blood=poki.blood-pokh.at1[1];
+    // console.log(atbb());
+
+    if(poki.blood<=0){
+        poki.blood=0;
+        document.getElementById("win").innerHTML = 'You Lost';
+    }
+    document.getElementById("blood1").innerHTML = poki.blood;
+}
 
 function attact(i){
     switch(i){
-    case (1):
+    case 1:
     pokh.blood=pokh.blood-pokp.at1[1];
+    atbb1();
     if(pokh.blood<=0){
         pokh.blood=0;
+        document.getElementById("win").innerHTML = 'You Win';
     }
     document.getElementById("blood").innerHTML = pokh.blood;
     console.log(pokh.blood);
     break;
     case 2:
+    atbb1();
     pokh.blood=pokh.blood-pokp.at2[1];
     if(pokh.blood<=0){
         pokh.blood=0;
+        document.getElementById("win").innerHTML = 'You Win';
     }
     document.getElementById("blood").innerHTML = pokh.blood;
     console.log(pokh.blood);
     break;
     case 3:
+        atbb1();
     pokh.blood=pokh.blood-pokp.at3[1];
     if(pokh.blood<=0){
         pokh.blood=0;
+        document.getElementById("win").innerHTML = 'You Win';
     }
     document.getElementById("blood").innerHTML = pokh.blood;
     console.log(pokh.blood);
     break;
     case 4:
+        atbb1();
     pokh.blood=pokh.blood-pokp.at3[1];
     if(pokh.blood<=0){
         pokh.blood=0;
+        document.getElementById("win").innerHTML = 'You Win';
     }
     document.getElementById("blood").innerHTML = pokh.blood;
 
@@ -184,7 +237,61 @@ function attact(i){
         document.getElementById('btn3').onclick = null;
         document.getElementById('btn4').onclick = null;
 }
+
     }
+
+
+    function attact(i){
+        switch(i){
+        case 1:
+        pokh.blood=pokh.blood-poki.at1[1];
+        atbb2();
+        if(pokh.blood<=0){
+            pokh.blood=0;
+            document.getElementById("win").innerHTML = 'You Win';
+        }
+        document.getElementById("blood").innerHTML = pokh.blood;
+        console.log(pokh.blood);
+        break;
+        case 2:
+            atbb2();
+        pokh.blood=pokh.blood-poki.at2[1];
+        if(pokh.blood<=0){
+            pokh.blood=0;
+            document.getElementById("win").innerHTML = 'You Win';
+        }
+        document.getElementById("blood").innerHTML = pokh.blood;
+        console.log(pokh.blood);
+        break;
+        case 3:
+            atbb2();
+        pokh.blood=pokh.blood-poki.at3[1];
+        if(pokh.blood<=0){
+            pokh.blood=0;
+            document.getElementById("win").innerHTML = 'You Win';
+        }
+        document.getElementById("blood").innerHTML = pokh.blood;
+        console.log(pokh.blood);
+        break;
+        case 4:
+            atbb2();
+        pokh.blood=pokh.blood-poki.at3[1];
+        if(pokh.blood<=0){
+            pokh.blood=0;
+            document.getElementById("win").innerHTML = 'You Win';
+        }
+        document.getElementById("blood").innerHTML = pokh.blood;
+    
+        console.log(pokh.blood);
+        break;
+        }
+        if(pokh.blood<=0){
+            document.getElementById('btn1').onclick = null;
+            document.getElementById('btn2').onclick = null;
+            document.getElementById('btn3').onclick = null;
+            document.getElementById('btn4').onclick = null;
+    }
+        }
 
 // .then((result) => {
 //         if(result){

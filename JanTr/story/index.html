@@ -14,18 +14,20 @@
     <div class="btn">
     <input class="btnst" type="button" style="background:url('img/startgame.png') no-repeat;width: 205px;height: 90px;border:none;background-color: transparent;" value="" onclick="gameplay()">
     <img src="img/小智.png" class="person1 animate__animated animate__bounce">
-    <img src="img/皮卡丘.png" class="pok1 animate__animated animate__tada" onclick="game('皮卡丘')">
-    <img src="img/伊布.png" class="pok2 animate__animated animate__tada" onclick="game('伊布')">
+    <img src="img/皮卡丘.png" class="pok1 animate__animated animate__tada" onclick="game(pokp.name)">
+    <img src="img/伊布.png" class="pok2 animate__animated animate__tada" onclick="game(poki.name)">
     <img src="img/小霞.png" class="person2 animate__animated animate__pulse">
     <img src="img/Staryu.png" class="pok3 animate__animated animate__tada">
     <img src="img/小智半身.png" class="person3 animate__animated animate__pulse">
-    <div><p id="blood"></p></div>
-    <div><p></p></div>
+    <p id="win"></p>
+    <p id="blood"></p>
+    <p id="blood1"></p>
+    
     <div class="attack">
         <input type="button" value="" class="atbtn" id="btn1" onclick="attact(1);">
-        <input type="button" value="" class="atbtn" id="btn2" onclick="attact(1);">
-        <input type="button" value="" class="atbtn" id="btn3" onclick="attact(1);">
-        <input type="button" value="" class="atbtn" id="btn4" onclick="attact(1);">
+        <input type="button" value="" class="atbtn" id="btn2" onclick="attact(2);">
+        <input type="button" value="" class="atbtn" id="btn3" onclick="attact(3);">
+        <input type="button" value="" class="atbtn" id="btn4" onclick="attact(4);">
     </div>
     </div>
 
