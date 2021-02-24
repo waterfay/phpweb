@@ -1,6 +1,6 @@
 <fieldset>
 <legend>帳號管理</legend>
-<form action="api/admin.php" method="post">
+<form action="api/admin_acc.php" method="post">
 <table style="width:50%;margin:auto;">
     <tr class="ct clo">
                 <td>帳號</td>
@@ -35,14 +35,14 @@
     <form>
 <table>
     <tr>
-        <td colspan="2" style="color:red;"></td>
+        <td colspan="2" style="color:red;">*請設定您要註冊的帳號及密碼(最長12個字元)</td>
     </tr>
     <tr>
     <td style="width:50%"  class="clo">
         Step1:登入帳號
         </td>
         <td>
-        <input type="text" name="pw" id="pw">
+        <input type="text" name="acc" id="acc">
         </td>
     </tr>
     <tr>

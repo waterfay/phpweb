@@ -19,3 +19,18 @@ function good(id,type,user)
 		}
 	})
 }
+
+function shee(id,sh)
+{
+	$.post("./api/sh.php",{id,sh},function()
+	{
+		if(sh=="1")
+		{
+			$("#sh"+id).text("不開放").attr("onclick","good('"+id+"','0','"+sh+"')")
+		}
+		else
+		{
+			$("#sh"+id).text("開放").attr("onclick","good('"+id+"','1','"+sh+"')")
+		}
+	})
+}

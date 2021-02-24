@@ -1,12 +1,11 @@
 <?php
 include_once "../base.php";
 
-if(isset($_POST['del'])){
+if(!empty($_POST['del'])){
     foreach($_POST['del'] as $id){
-    $User->del();
+        $User->del($id);
     }
 }
 
-to("../backend.php?do=admin");
-
+to("../admin.php?do=acc");
 ?>

@@ -3,7 +3,7 @@
     <form action="api/admin_news.php" method="post">
     <table class="ct" width="100%">
         <tr>
-            <td width="10%">編輯</td>
+            <td width="10%">編號</td>
             <td width="70%">標題</td>
             <td width="10%">顯示</td>
             <td width="10%">刪除</td>
@@ -24,7 +24,7 @@
             <td><?=$po['title']?></td>
             <td><input type="checkbox" name="sh[]" value="<?=$po['id']?>" <?=$sh?>></td>
             <td><input type="checkbox" name="del[]" value="<?=$po['id']?>"></td>
-            <input type="hidden" name="id[]" value="<?$po['id']?>">
+            <input type="hidden" name="id[]" value="<?=$po['id']?>">
         </tr>
         <?php
             }

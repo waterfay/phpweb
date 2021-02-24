@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>你考幾分呢?</h2>
+            <input type="text" v-model="score">
+            <div　v-if="score>=60">很棒，你及格了！</div>
+            <div　v-else="score<=60">不及格！</div>
+            <!-- <div class="hi">{{message}}</div>
+            <div v-show="loading">{{score}}</div> -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="js.js"></script>
+</html>

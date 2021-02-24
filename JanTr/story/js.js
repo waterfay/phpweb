@@ -172,6 +172,7 @@ function atbb1(){
     if(pokp.blood<=0){
         pokp.blood=0;
         document.getElementById("win").innerHTML = 'You Lost';
+        // break;
     }
     document.getElementById("blood1").innerHTML = pokp.blood;
 }
@@ -198,6 +199,7 @@ function atbb2(){
     if(poki.blood<=0){
         poki.blood=0;
         document.getElementById("win").innerHTML = 'You Lost';
+        // break;
     }
     document.getElementById("blood1").innerHTML = poki.blood;
 }

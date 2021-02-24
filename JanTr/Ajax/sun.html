@@ -23,6 +23,7 @@
     let data=new Array();
     $.getJSON('	https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/A-B0062-001?Authorization=CWB-DA117DA4-D836-409E-AC03-8BD5CADABC32&downloadType=WEB&format=JSON')
     .done(function(re){
+        // data=re;
          data=re.cwbopendata.dataset.locations;
         // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1].parameterValue);//日出
         // console.log(re.cwbopendata.dataset.locations.location[0].time[0].parameter[1]);
@@ -31,10 +32,10 @@
         // for(let i=0;i<data.location.time.length;i++){
             
         // }
-        console.log(Math.ceil((Date.now()-Date.parse('01 Jan 2020 00:00:00 GMT'))/1000/60/60/24));
-        console.log(data.location[0].time.length);
-        console.log(data.location[0].time[(Math.ceil((Date.now()-Date.parse('01 Jan 2020 00:00:00 GMT'))/1000/60/60/24))-1].dataTime);
-        console.log(re.cwbopendata.dataset.locations.location[0].time[0].dataTime);
+        // console.log(Math.ceil((Date.now()-Date.parse('01 Jan 2020 00:00:00 GMT'))/1000/60/60/24));
+        // console.log(data.location[0].time.length);
+        // console.log(data.location[0].time[(Math.ceil((Date.now()-Date.parse('01 Jan 2020 00:00:00 GMT'))/1000/60/60/24))-1].dataTime);
+        // console.log(re.cwbopendata.dataset.locations.location[0].time[0].dataTime);
 
         for(let i=0;i<data.location.length;i++){
             area=re.cwbopendata.dataset.locations.location[i].locationName;
