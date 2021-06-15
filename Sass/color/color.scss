@@ -1,0 +1,19 @@
+$base-color:#000000;
+
+.box{
+    width:100px;
+    height:100px;
+    margin:20px;
+}
+
+.box1{
+    background: $base-color;
+}
+
+.box2{
+    background: darken($base-color,20%);
+}
+
+.box3{
+    background: lighten($base-color, 20%);
+}
