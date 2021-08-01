@@ -1,0 +1,58 @@
+body {
+  font-family: NotoSansCJKtc-Regular;
+  letter-spacing: 0.62px;
+}
+
+.yellow {
+  clip-path: polygon(0 0, 100% 0, 100% 76%, 0% 100%);
+  height: 60vh;
+  width: 100vw;
+  background: #FFD370;
+  position: absolute;
+  z-index: -100;
+}
+
+.Todobg {
+  box-shadow: 1px 1px 5px #ad78008a;
+  z-index: 100;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.nav-link.active {
+  animation-name: example;
+  animation-duration: 0.5s;
+  transition: all 0.1s ease-in-out;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #000000!important;
+}
+
+.nav.nav-tabs.justify-content-around {
+  border: none;
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  width: 10vw;
+  color: #868686;
+}
+
+.DeleteAll {
+  color: #868686;
+}
+
+.bottom {
+  font-size: 0.875rem;
+}
+.delete{
+  border-radius: 5px;
+  color:#ffffff;
+  background: #242424;
+  margin-left:10px;
+
+}
+.form-check-input:checked {
+  background-color: #000000;
+  border-color: #000000;
+}

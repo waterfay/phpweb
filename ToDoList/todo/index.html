@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>todo</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="yellow vw-100"></div>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-center pt-5">TODO List</h2>
+                        <h5 class="text-center date"></h5>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center py-5 px-3">
+                        <div class="col-md-6 col-12 p-4 Todobg">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group"><input class="form-control txt" type="text" placeholder="Please enter to-do..."><button class="btn btn-dark save" type="button" >+</button></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div>
+                                        <ul class="nav nav-tabs justify-content-around" role="tablist">
+                                            <li class="nav-item" role="presentation"><a class="nav-link text-center all" role="tab" data-bs-toggle="tab" href="#tab-1">全部</a></li>
+                                            <li class="nav-item" role="presentation"><a class="nav-link text-center notcompleted" role="tab" data-bs-toggle="tab" href="#tab-1">待完成</a></li>
+                                            <li class="nav-item" role="presentation"><a class="nav-link text-center completed" role="tab" data-bs-toggle="tab" href="#tab-1">已完成</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active px-3" role="tabpanel"  id="tab-1">
+                                                <form><div class="list py-3"></div></form>
+                                                <!-- <div class="form-check py-1"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Label</label></div>
+                                                <div class="form-check py-1"><input class="form-check-input" type="checkbox" id="formCheck-4"><label class="form-check-label" for="formCheck-1">Label</label></div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col"><span class="bottom listcontent">0個待辦項目</span></div>
+                                <div class="col d-lg-flex justify-content-end"><span class="DeleteAll bottom">清除已完成資料</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         
+        </section>
+    </main>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/js.js"></script>
+</body>
+
+</html>

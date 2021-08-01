@@ -83,9 +83,25 @@ stationFilter.addEventListener("click",function(e){
     let str= "";
     data.forEach(function(item,index){
         console.log(e.target.value==item.Charge);
+        if(e.target.value=="全部"){
+            str+=`<li>${item.name}，${item.Charge}</li>`
+        }else
         if(e.target.value==item.Charge){
             str+=`<li>${item.name}，${item.Charge}</li>`
         }
     })
     list.innerHTML=str;
+})
+
+const stationName=document.querySelector(".stationName");
+const stationCharge=document.querySelector(".stationCharge");
+const btn=document.querySelector(".btn");
+btn.addEventListener("click",function(e){
+  console.log(stationName.value);
+  console.log(stationCharge.value);
+  let obj = {};
+  obj.Charge = stationCharge.value;
+  obj.name = stationName.value;
+  data.push(obj);
+  init();
 })
