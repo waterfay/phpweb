@@ -1,0 +1,11 @@
+{
+    "Shirt":{
+        "img" :{
+        "Shirt01":"./shirt/Shirt01.png",
+        "Shirt02":"./shirt/Shirt02.png",
+        "Shirt03":"./shirt//Shirt03.png",
+        "Shirt04":"./shirt/Shirt04.png"
+        }
+}
+    
+}

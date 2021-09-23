@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+[draggable="true"] {
+  cursor: move;
+}
+.target{
+  width: 300px;
+  height: 200px;
+  border: 2px dashed gray;
+  margin:10px;
+  padding:10px;
+}
+.target.over{
+  border: 2px dashed red;
+}
+.box{
+  width: 80px;
+  height: 80px;
+  background: pink;
+  padding:10px;
+  margin:10px;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="d-flex">
+      <div class="target d-flex" id="target1">
+        <div class="box" id="box1" draggable="true">box1</div>
+        <div class="box" id="box2" draggable="true">box2</div>
+        <div class="box" id="box3" draggable="true">box3</div>
+      </div>
+      <div class="target d-flex" id="target2">
+        
+      </div>
+      
+    </div>
+  </div>
+</body>
+<script>
+$(".box").on({
+  "dragstart": function(event){
+    console.log("dragstart");
+  event.originalEvent.dataTransfer.setData('text/plain',event.target.id)
+  },
+  "dragend": function(){
+    console.log("dragend");
+    // $(".target").removeClass("over")
+  }
+})
+
+$(".target").on({
+  "dragenter": function(event){
+    event.preventDefault();
+    
+    console.log("dragenter");
+  },
+  "dragover": function(event){
+    event.preventDefault();
+    // $(this).addClass("over")
+    
+    console.log("dragover");
+    
+  },
+  "dragleave": function(){
+    console.log("dragleave");
+    // $(".target").removeClass("over")
+    
+  },
+  "drop": function(event){
+    event.preventDefault();
+    // event.stopPropagation(); //停止事件氣泡現象
+    console.log("drop");
+    let id = event.originalEvent.dataTransfer.getData('text/plain');
+    if(id==id)
+    $("#"+id).appendTo(event.target);
+  }
+})
+</script>
+</html>

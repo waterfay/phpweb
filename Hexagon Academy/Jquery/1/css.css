@@ -1,0 +1,117 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+}
+
+.nav-list{
+    font-family: 'Staatliches', cursive,Microsoft JhengHei;
+    font-size: 1.2rem;
+    height: 42px;
+    padding: 20px;
+    padding-bottom: 35px;
+    background: #f0f1f3;
+}
+.nav-list a{
+    color: #945858;
+    text-decoration: none;
+}
+.nav-list a:hover{
+    color: #572222;
+    text-decoration: none;
+}
+.nav-list li{
+    list-style-type:none;
+    padding: 10px;
+}
+
+.nav-list .list > li {
+    align-self: center;
+    display: inline-block;
+}
+
+.nav-list .toggle{
+    top:0px;
+    left:0px;
+    display: none;
+    position: absolute;
+}
+
+.nav-list .list{
+    width: 100vw;
+    display: flex;
+    margin: 0;
+}
+.nav-list .toggle{
+    z-index: 999;
+    border: 0.5px solid #bf9292;
+    padding: 30px;
+    background: #fff2f2;
+}
+.fa-cotton-bureau{
+    font-size: 2.2rem;
+    margin-right:10px ;
+    color:#a06060;
+}
+.nav-list .list-moble{
+    margin: 0;
+    display: none;
+}
+.aside{
+    z-index: 999;
+    position: absolute;
+    left: -5px;
+    top:0px;
+    width:105%;
+    background: #ffe5e5;
+    overflow: hidden;
+    transform: translateX(-105%);
+    transition: all 1s ease-in-out;
+}
+.list-moble-item > li {
+    display: block;
+
+}
+.list-moble-item .fa-cotton-bureau{
+    color:#945858;
+}
+.toggle-moble{
+    transition: all 1s ease-in-out;
+    display: none;
+}
+.scrollTop{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: #612929;
+    position: absolute;
+    top: 90vh;
+    left: 95%;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    display: grid;
+    align-content: center;
+    box-shadow: 1px 1px 5px 5px #e0d5d5;
+    z-index: 999;
+}
+
+
+
+@media (max-width:768px){
+    .list{
+        display: none!important;
+    }
+    .list-moble{
+        display: block!important;
+    }
+    .open .aside{
+        transform: translateX(0px);
+        transition: all 1s ease-in-out;
+    }
+    .scrollTop{
+        left: 85%;
+    }
+    
+}
