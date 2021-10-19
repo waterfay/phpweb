@@ -1,19 +1,19 @@
 body,html{
     margin: 0;
     padding: 0;
-    height: 100vh;
-
+    font-family: 'Staatliches', cursive,Microsoft JhengHei, sans-serif;
+    font-size: 1.5rem;
+    overflow: hidden;
 }
 
 .nav-list{
-    font-family: 'Staatliches', cursive,Microsoft JhengHei;
-    font-size: 1.2rem;
     height: 42px;
     padding: 20px;
     padding-bottom: 35px;
     background: #f0f1f3;
 }
 .nav-list a{
+    font-size:1rem;
     color: #945858;
     text-decoration: none;
 }
@@ -114,4 +114,90 @@ body,html{
         left: 85%;
     }
     
+}
+.swiper-container {
+    width: 100%;
+    height: 90vh;
+  }
+
+  .swiper-slide {
+      padding: 0;
+    text-align: center;
+    font-size: 18px;
+    background-image: url("nordwood-themes-KcsKWw77Ovw-unsplash.jpg");
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .swiper-pagination-bullet-active{
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background: #ffd8da !important;
+  }
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 5px!important;
+    background: rgb(121, 121, 121);
+    transition: all 1s ease-in-out;
+}
+.Flowerbanner{
+    box-shadow: 1px 1px 10px 5px #d8b5b5;
+    background-image: linear-gradient(
+            45deg , #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    width: 60%;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.Flowerbanner-1{
+    overflow: hidden;
+    border: 1px solid #fea4a5;
+    background: #f2f2ef;
+    top: 200px;
+    position: absolute;
+    width: 22%;
+    height: 41vh;
+    border-radius: 20px;
+    left: calc(56%);
+
+}
+.Flowerbanner-2{
+    box-shadow: 1px 1px 10px 5px #e0d1de;
+    background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+    width: 60%;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.Flowerbanner-3{
+    overflow: hidden;
+    border: 1px solid #dbacc6;
+    background: #f2f2ef;
+    top: 200px;
+    position: absolute;
+    width: 22%;
+    height: 41vh;
+    border-radius: 20px;
+    left: calc(56%);
+
 }

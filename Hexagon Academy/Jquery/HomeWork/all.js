@@ -45,7 +45,7 @@ function resizewin(e){
 a=$(window).width()
 b=$(".list").height()
 console.log($(".list"))
-$(".toggle").offset({top:b-8,left:100})
+$(".toggle").offset({top:b-35,left:100})
 }
 
 $(document).ready(function(){
