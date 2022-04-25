@@ -76,6 +76,26 @@ $("html body").animate({
 },700);
 })
 
+var swiper = new Swiper(".mySwiper", {
+  effect:"fade",
+  direction: "vertical",
+  slidesPerView: 1,
+  spaceBetween: 30,
+  mousewheel: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+lightbox.option({
+'resizeDuration': 200,
+'wrapAround': true
+})
+
+lightbox.option({
+'resizeDuration': 200,
+'wrapAround': true
+})
 
 
 // $(window).resize(function() { //開始監聽視窗寬度
