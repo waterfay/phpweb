@@ -1,5 +1,5 @@
 function removeElement(&$nums,$val) {
-        $len=count($nums);
+    $len=count($nums);
         $k=0;
         for($i=0;$i<$len;$i++){
             if($nums[$i]!==$val){
