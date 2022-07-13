@@ -1,0 +1,74 @@
+/* all-start */
+body {
+    font-weight: 400;
+    font-family: PingFangTC-Regular, sans-serif,"微軟正黑體",Times,'Noto Sans TC', Heiti TC, "メイリオ", serif, sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+    line-height: 1.7;
+    color: #373737;
+    background-image: url(img/img-wave-bg.png);
+    background-repeat:no-repeat ;
+    background-size:cover;
+}
+main{
+    overflow: hidden;
+    min-height: 100vh;
+}
+h2{
+    font-size: 1.2rem;
+    color:#1c2557;
+}
+/* button-start */
+.btn{
+    width: 65px!important;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+.btn-primary{
+    background: #3b6ca7;
+}
+.btn-primary:hover,.btn-primary:focus{
+    background: #1c2557;
+    box-shadow: none;
+}
+.btn-danger{
+    background: #a25c87;
+}
+/* button-end */
+/* all-end */
+/* layout-start */
+.frame-box{
+    box-shadow: 0px 0px 2px 1px rgb(178 174 183 / 47%);
+    border-radius: 4px;
+    background: #ffffff;
+}
+/* layout-end */
+/* table-start */
+.table{
+    word-break: keep-all;
+}
+.table-title{
+    font-size: 1.2rem;
+}
+.table>thead{
+    font-weight: 600;
+    color: #3b6ca7;
+}
+.table .icon-table{
+    color: #3b6ca7;
+    transition: all .2s linear;
+}
+
+.table .icon-table:hover{
+    color: #8eadd3;
+    transform:rotate(90deg);
+}
+.table>:not(thead)>tr:hover{
+    background: #d5dbff36;
+    border-left: 3px solid #507dcc00;
+}
+.table>:not(thead)>tr:hover{
+    background: #d5dbff36;
+    border-left: 3px solid #3b6ca7;
+}
+/* table-end */
