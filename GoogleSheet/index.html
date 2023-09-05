@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>客戶需求填寫</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <span>您的大名：</span><input id="nameValue" type="text">
+    </div>
+    <div>
+      <span>您的電話：</span><input id="phoneValue" type="text">
+    </div>
+    <div>
+      <span>您的mail：</span><input id="mailValue" type="mail">
+    </div>
+    <div>
+        <span>您的預約日期：</span><input id="rvdateValue" type="date">
+      </div>
+      <div>
+        <span>您的預約時間：</span>
+        <select id="rvtimeValue">
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+          </select>
+      </div>
+      <div>
+        <span>您預約是穿的品牌：</span>
+        <select id="brandValue">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+      </div>
+      <div>
+        <span>您預約試穿的品項：</span>
+        <select id="itemValue">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+      </div>
+    <button>送出</button>
+  </div>
+  <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>
