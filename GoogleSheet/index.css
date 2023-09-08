@@ -5,6 +5,7 @@
     padding: 20px;
     border: 1px solid black;
     font-size: 15px;
+    display: none;
   }
   .container div{
     margin-bottom: 10px;
